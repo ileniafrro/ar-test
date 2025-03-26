@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR con Image Tracking</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam;">
+        <!-- Cargar el marcador de imagen -->
+        <a-nft
+            type="nft"
+            url="marker.fset"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance="0.01"
+            smoothThreshold="5">
+            
+            <!-- VIDEO en AR -->
+            <a-video 
+                src="video.mp4" 
+                width="2" 
+                height="1.5" 
+                position="0 0 0"
+                autoplay
+                loop>
+            </a-video>
+
+            <!-- IMAGEN en AR (Si no quieres video, usa esto en su lugar) -->
+            <!-- <a-image src="imagen-ar.jpg" width="2" height="1.5" position="0 0 0"></a-image> -->
+
+        </a-nft>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
